@@ -75,6 +75,7 @@ class _AuthFormState extends State<AuthForm> {
                     ),
                     SizedBox(height: 5,),
                     TextFormField(
+                      style: TextStyle(color: Colors.white),
                       decoration: const InputDecoration(
                         focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(color: Color.fromARGB(255,34,219,172), width: 1.0),
@@ -110,6 +111,7 @@ class _AuthFormState extends State<AuthForm> {
               ),
               SizedBox(height: 5,),
               TextFormField(
+                style: TextStyle(color: Colors.white),
                 key: const ValueKey('email'),
                 initialValue: _formData.email,
                 onChanged: (email) => _formData.email = email,
@@ -143,6 +145,7 @@ class _AuthFormState extends State<AuthForm> {
               ),
               SizedBox(height: 5,),
               TextFormField(
+                style: TextStyle(color: Colors.white),
                 decoration: const InputDecoration(
                   focusedBorder: OutlineInputBorder(
                     borderSide: BorderSide(color: Color.fromARGB(255,34,219,172), width: 1.0),
@@ -170,7 +173,6 @@ class _AuthFormState extends State<AuthForm> {
                   alignment: Alignment.center,
                   width: double.infinity,
                   height: 40,
-                  
                   decoration: BoxDecoration(
                     color: Color.fromARGB(255,34,219,172),
                     borderRadius: BorderRadius.circular(10)
