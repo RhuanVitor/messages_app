@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:messages/screens/auth_or_page_screen.dart';
-import 'package:messages/screens/auth_screen.dart';
 
 void main() {
   runApp(const MyApp());
