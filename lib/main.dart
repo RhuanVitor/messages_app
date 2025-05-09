@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:messages/screens/auth_or_page_screen.dart';
 import 'package:messages/screens/auth_screen.dart';
 
 void main() {
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: AuthScreen(),
+      home: AuthOrPageScreen(),
       debugShowCheckedModeBanner: false,
     );
   }
