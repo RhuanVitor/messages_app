@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "138578586453",
+    "project_id": "message-app-c8a46",
+    "storage_bucket": "message-app-c8a46.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:138578586453:android:6674f562335793e3be1ddc",
+        "android_client_info": {
+          "package_name": "br.com.messagesflutter.chat"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBAzXvssk5DRmdC0TO1ZbFXkb0N1KD0EJw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
