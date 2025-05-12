@@ -3,10 +3,11 @@ import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
 import 'package:messages/core/models/chat_user.dart';
 import 'package:messages/core/services/auth/auth_service.dart';
-
-import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthFirebaseService implements AuthService{
   static final _defaultUser = ChatUser(
@@ -37,27 +38,37 @@ class AuthFirebaseService implements AuthService{
     return _userStream;
   }
 
-  Future<void> signup(
-    String name, 
-    String email, 
-    String password, 
-    File? image
-    ) async {
-      final auth = FirebaseAuth.instance;
-      UserCredential credential = await auth.createUserWithEmailAndPassword(
-        email: email, password: password
-      );
+ @override
+ Future<void> signup(
+  String name, String email, String password, File? image) async {
+    final signup = await Firebase.initializeApp(
+    name: 'userSignup',
+    options: Firebase.app().options,
+    ); 
+    
+    final auth = FirebaseAuth.instanceFor(app: signup);
+    
+    UserCredential credential = await auth.createUserWithEmailAndPassword(
+    email: email,
+    password: password,
+    );
+    
+    if (credential.user != null) {
       
-      if(credential.user == null){return;}
-
-      final imageName = '${credential.user!.uid}.jpg';
-      final imageUrl = await _uploadUserImage(image, imageName);
-
-      await credential.user?.updateDisplayName(name);
-      await credential.user?.updatePhotoURL(imageUrl);
-
-      await _saveChatUser(_toChatUser(credential.user!, imageUrl));
+    final imageName = '${credential.user!.uid}.jpg';
+    final imageUrl = await _uploadUserImage(image, imageName);
+    
+    await credential.user?.updateDisplayName(name);
+    await credential.user?.updatePhotoURL(imageUrl);
+    
+    await login(email, password);
+    
+    _currentUser = _toChatUser(credential.user!, name);
+    await _saveChatUser(_currentUser!);
     }
+    
+    await signup.delete();
+  }
 
   Future<void> login(String email, String password) async{
     FirebaseAuth.instance.signInWithEmailAndPassword(

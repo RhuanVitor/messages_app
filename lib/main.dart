@@ -16,7 +16,8 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (_) => ChatNotificationService())
       ],
-      child: MaterialApp(
+      
+      child: MaterialApp( 
         title: 'Flutter Demo',
         home: AuthOrPageScreen(),
         debugShowCheckedModeBanner: false,
