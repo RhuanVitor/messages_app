@@ -19,13 +19,13 @@ class _AuthScreenState extends State<AuthScreen> {
 
       if (formData.isLogin) {
         await AuthService().login(
-          formData.email, 
+          formData.email.trim(), 
           formData.password
         );
       } else {
         await AuthService().signup(
           formData.name, 
-          formData.email, 
+          formData.email.trim(), 
           formData.password, 
           formData.image
         );
