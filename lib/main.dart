@@ -3,7 +3,7 @@ import 'package:messages/core/services/notification/chat_notification_service.da
 import 'package:messages/screens/auth_or_page_screen.dart';
 import 'package:provider/provider.dart';
 
-void main() {
+void main() async {
   runApp(const MyApp());
 }
 
@@ -16,8 +16,8 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (_) => ChatNotificationService())
       ],
-      
-      child: MaterialApp( 
+      child: MaterialApp(
+        color: Colors.black,
         title: 'Flutter Demo',
         home: AuthOrPageScreen(),
         debugShowCheckedModeBanner: false,

@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:messages/core/models/chat_message.dart';
 
 class MessageBubble extends StatelessWidget{
@@ -42,7 +43,7 @@ class MessageBubble extends StatelessWidget{
           children: [
             Container(
               decoration: BoxDecoration(
-                color: beLongsToCurrentUser ? Colors.deepPurpleAccent : Colors.black12,
+                color: beLongsToCurrentUser ? Color.fromARGB(255,34,219,172) : const Color.fromARGB(255, 60, 60, 60),
                 borderRadius: BorderRadius.only(
                   bottomRight: Radius.circular(15),
                   bottomLeft: Radius.circular(15),
@@ -62,12 +63,23 @@ class MessageBubble extends StatelessWidget{
                   Text(
                     message.userName,
                     style: TextStyle(
-                      fontWeight: FontWeight.bold
+                      fontWeight: FontWeight.bold,
+                      color: beLongsToCurrentUser ? Colors.black : Colors.white
                     ),
                   ),
                   Text(
-                    message.text
-                  ),
+                    message.text,
+                    style: TextStyle(
+                      color: beLongsToCurrentUser ? Colors.black : Colors.white
+                    ),
+                  ),  
+                  Text(
+                    DateFormat('HH:mm').format(message.createdAt),
+                    style: TextStyle(
+                      color: beLongsToCurrentUser ? Colors.black54: Colors.grey,
+                      fontSize: 10
+                    ),
+                  )
                 ],
               ),
             ),

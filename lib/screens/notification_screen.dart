@@ -10,15 +10,36 @@ class NotificationScreen extends StatelessWidget{
     final items = service.items;
 
     return Scaffold(
+      backgroundColor: Colors.black,
       appBar: AppBar(
-        title: Text("Minhas notificações"),
+        backgroundColor: Colors.black,
+        leading: IconButton(icon: Icon(Icons.arrow_back), color: Colors.white, onPressed: (){
+          Navigator.of(context).pop();
+        },),
+        title: Text(
+          "Minhas notificações",
+          style: TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.bold
+          ),
+        ),
       ),
       body: ListView.builder(
         itemCount: service.itemsCount,
         itemBuilder: (ctx, index){
           return ListTile(
-            title: Text(items[index].title),
-            subtitle: Text(items[index].body),
+            title: Text(
+              items[index].title,
+              style: TextStyle(
+                color: Colors.white
+              ),
+            ),
+            subtitle: Text(
+              items[index].body,
+              style: TextStyle(
+                color: Colors.white
+              ),
+            ),
             onTap: () => service.remove(items[index]),
           );
         }

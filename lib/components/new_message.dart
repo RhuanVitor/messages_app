@@ -24,26 +24,50 @@ class _NewMessageState extends State<NewMessage> {
   @override
   Widget build(BuildContext context){
     
-    return Row(
-      children: [
-        Expanded(
-          child: TextField(
-            controller: _messageController,
-            onChanged: (msg) => setState(() {
-              _message = msg;
-            }),
-            decoration: InputDecoration(
-              labelText: 'Enviar mensagem...',
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+      decoration: BoxDecoration(
+        color: const Color.fromARGB(255, 60, 60, 60),
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: Row(
+        children: [
+          Expanded(
+            child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 15),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                color: const Color.fromARGB(255, 60, 60, 60)
+              ),
+              child: TextField(
+                controller: _messageController,
+                onChanged: (msg) => setState(() {
+                  _message = msg;
+                }),
+                style: TextStyle(
+                  color: Colors.white
+                ),
+                decoration: InputDecoration(
+                  hintStyle: TextStyle(
+                    color: const Color.fromARGB(255, 120, 120, 120)
+                  ),
+                  hintText: _messageController.text.isEmpty ? 'Enviar mensagem...' : null,
+                  border: InputBorder.none,
+                ),
+              ),
             ),
           ),
-        ),
-        IconButton(
-          icon: Icon(Icons.send), 
-          onPressed: _message.trim().isEmpty 
-            ? null : 
-            _sendMessage ,
-        )
-      ],
+          IconButton(
+            icon: Icon(
+              Icons.send, 
+              color: const Color.fromARGB(255, 120, 120, 120) 
+            ), 
+            onPressed: _message.trim().isEmpty 
+              ? null : 
+              _sendMessage ,
+          )
+        ],
+      ),
     );
   }
 }

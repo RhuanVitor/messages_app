@@ -1,9 +1,6 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:messages/components/messages.dart';
 import 'package:messages/components/new_message.dart';
-import 'package:messages/core/models/chat_notification.dart';
 import 'package:messages/core/services/auth/auth_service.dart';
 import 'package:messages/core/services/notification/chat_notification_service.dart';
 import 'package:messages/screens/notification_screen.dart';
@@ -14,7 +11,9 @@ class ChatScreen extends StatelessWidget{
   @override
   Widget build(BuildContext context){
     return Scaffold(
+      backgroundColor: Color.fromRGBO(13, 19, 24, 1),
       appBar: AppBar(
+        backgroundColor: Color.fromRGBO(13, 19, 24, 1),
         title: Text("Chat"),
         actions: [
           DropdownButtonHideUnderline(
@@ -32,7 +31,10 @@ class ChatScreen extends StatelessWidget{
                   ) 
                 )
               ], 
-              icon: Icon(Icons.more_vert),
+              icon: Icon(
+                Icons.more_vert,
+                color: const Color.fromARGB(255, 120, 120, 120),
+              ),
               onChanged: (value){
                 if(value == 'logout'){
                   AuthService().logout();
@@ -43,7 +45,10 @@ class ChatScreen extends StatelessWidget{
           Stack(
             children: [
               IconButton(
-                icon: Icon(Icons.notifications), 
+                icon: Icon(
+                  Icons.notifications,
+                  color: const Color.fromARGB(255, 120, 120, 120),
+                ), 
                 onPressed: (){
                   Navigator.of(context).push(
                     MaterialPageRoute(
