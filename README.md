@@ -1,6 +1,9 @@
 # messages
 
 App de mensagens simples feito em Flutter, com chat único para todos os usuários.
+<br>
+<img width=300 src="https://i.ibb.co/SDf9vt0q/IMG-20250716-194333.jpg">
+<img width=300 src="https://i.ibb.co/CssMskCx/IMG-20250716-194321.jpg">
 
 ## Funcionalidades
 - Criação de conta e login
