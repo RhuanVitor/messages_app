@@ -1,16 +1,28 @@
 # messages
 
-A new Flutter project.
+App de mensagens simples feito em Flutter, com chat único para todos os usuários.
 
-## Getting Started
+## Funcionalidades
+- Criação de conta e login
+- Upload de imagem de perfil
+- Chat único global (todos os usuários conversam no mesmo chat)
+- Envio de mensagens de texto.
 
-This project is a starting point for a Flutter application.
+## Tecnologias Utilizadas
+- Flutter
+- Dart
+- Provider
+- Backend com Firebase
 
-A few resources to get you started if this is your first Flutter project:
+## Como Executar
+### Pré-requisitos
+- Flutter instalado: flutter.dev/docs/get-started
+- Dispositivo/emulador Android ou iOS
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Instalação:
+```bash
+git clone https://github.com/RhuanVitor/messages_app
+cd messages
+flutter pub get
+flutter run
+```
